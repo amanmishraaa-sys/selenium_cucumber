@@ -12,8 +12,6 @@ public class LoginPage{
 
     private WebUtil webUtil;
 
-    private By singInButton = By.id("SubmitLogin");
-
     private By forgotPwdLink = By.linkText("Forgot your password?");
 
     public LoginPage(WebDriver driver){
@@ -42,7 +40,7 @@ public class LoginPage{
     }
 
     public void clickLoginButton(){
-        driver.findElement(singInButton).click();
+        webUtil.click(By.xpath(ReadProperty.propertyReader("loginButton")));
     }
 
     public boolean forgotPasswordLinkIsVisible(){

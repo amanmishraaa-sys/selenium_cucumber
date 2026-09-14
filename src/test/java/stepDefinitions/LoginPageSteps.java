@@ -31,4 +31,18 @@ public class LoginPageSteps {
     public void verifyThatForgotPasswordLinkIsDisplayed(){
         Assert.assertTrue(loginPage.forgotPasswordLinkIsVisible());
     }
+    @And("Click on Login button")
+    public void clickOnLoginButton(){
+        loginPage.clickLoginButton();
+    }
+
+    @And("User enters username {string}")
+    public void userEntersUsername(String username){
+        loginPage.enterUsername(username);
+    }
+
+    @And ("User enters password {string}")
+    public  void userEntersPassword(String password){
+        loginPage.enterPassword(password);
+    }
 }

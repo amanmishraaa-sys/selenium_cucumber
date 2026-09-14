@@ -11,8 +11,8 @@ Feature: Login page feature
 
   Scenario: Login with correct credentials
     Given Go to the url "https://rahulshettyacademy.com/client/#/auth/login"
-    When user enters username "doubledouble@gmail.com"
-    And user enters password "double@1234"
-    And user clicks on Login button
-    Then user gets the title of the page
-    And Page title should be "My Account"
+    When User enters username "doubledouble@gmail.com"
+    And User enters password "double@1234"
+    And Click on Login button
+    Then User gets the title of the page
+    And Page title should be "Let's Shop"
