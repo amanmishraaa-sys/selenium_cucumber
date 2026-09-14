@@ -1,13 +1,13 @@
 Feature: Login page feature
 
   Scenario: Login page title
-    Given user is login page
-    When user gets the title of the page
-    Then page title should be "Let's Shop"
+    Given Go to the url "https://rahulshettyacademy.com/client/#/auth/login"
+    When User gets the title of the page
+    Then Page title should be "Let's Shop"
 
   Scenario: Forgot Password link
-    Given user is on login page
-    Then forgot password link should be displayed
+    Given Go to the url "https://rahulshettyacademy.com/client/#/auth/login"
+    Then Verify that forgot password link is displayed
 
   Scenario: Login with correct credentials
     Given user is on login page

@@ -4,6 +4,7 @@ import com.util.ReadProperty;
 import com.util.WebUtil;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.io.Read;
 
 public class LoginPage{
 
@@ -20,9 +21,8 @@ public class LoginPage{
         this.webUtil = new WebUtil(driver);
     }
 
-    public void goToTheLoginPage(){
-        String loginPageUrl = "https://rahulshettyacademy.com/client/#/auth/login";
-        webUtil.navigateToUrl(loginPageUrl);
+    public void goToTheLoginPage(String url){
+        webUtil.navigateToUrl(url);
     }
 
     public String getLoginPageTitle(){
@@ -43,5 +43,9 @@ public class LoginPage{
 
     public void clickLoginButton(){
         driver.findElement(singInButton).click();
+    }
+
+    public boolean forgotPasswordLinkIsVisible(){
+       return webUtil.isElementVisible(By.xpath(ReadProperty.propertyReader("forgotPasswordLink")));
     }
 }

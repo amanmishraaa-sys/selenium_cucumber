@@ -26,4 +26,8 @@ public class WebUtil {
     public String getPageTitle(){
         return driver.getTitle();
     }
+
+    public boolean isElementVisible(By locator){
+        return driver.findElement(locator).isDisplayed();
+    }
 }
