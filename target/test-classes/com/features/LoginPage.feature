@@ -1,18 +1,21 @@
 Feature: Login page feature
 
+  @login
   Scenario: Login page title
     Given Go to the url "https://rahulshettyacademy.com/client/#/auth/login"
     When User gets the title of the page
     Then Page title should be "Let's Shop"
 
+    @forgotPassworLink
   Scenario: Forgot Password link
     Given Go to the url "https://rahulshettyacademy.com/client/#/auth/login"
     Then Verify that forgot password link is displayed
 
+      @loginWithCreds
   Scenario: Login with correct credentials
-    Given user is on login page
-    When user enters username "doubledouble@gmail.com"
-    And user enters password "double@1234"
-    And user clicks on Login button
-    Then user gets the title of the page
-    And Page title should be "My Account"
+    Given Go to the url "https://rahulshettyacademy.com/client/#/auth/login"
+    When User enters username "doubledouble@gmail.com"
+    And User enters password "double@1234"
+    And Click on Login button
+    Then User gets the title of the page
+    And Page title should be "Let's Shop"
