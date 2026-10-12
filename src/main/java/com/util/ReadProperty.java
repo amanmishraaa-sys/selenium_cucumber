@@ -13,7 +13,7 @@ public class ReadProperty {
     public static Properties getProperty(){
         pro = new Properties();
         try {
-            FileInputStream fi = new FileInputStream("src/test/resources/config/objectRepo.properties");
+            FileInputStream fi = new FileInputStream(".\\src\\test\\resources\\config\\objectRepo.properties");
             pro.load(fi);
         } catch (FileNotFoundException e){
             e.printStackTrace();

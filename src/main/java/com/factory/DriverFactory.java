@@ -22,12 +22,7 @@ public class DriverFactory {
         System.out.println("Browser value is: "+browser);
 
         if (browser.equals("chrome")){
-            ChromeOptions options = new ChromeOptions();
-            options.addArguments("--headless");
-            options.addArguments("--no-sandbox");
-            options.addArguments("--disable-dev-shm-usage");
-            options.addArguments("--window-size=1920,1080");
-            tlDriver.set(new ChromeDriver(options));
+            tlDriver.set(new ChromeDriver());
         }
         else if(browser.equals("firefox")){
             WebDriverManager.firefoxdriver().setup();
