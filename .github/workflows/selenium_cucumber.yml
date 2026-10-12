@@ -29,7 +29,7 @@ jobs:
           mvn -version
 
       - name: Run Selenium Cucumber Tests
-        run: mvn clean test -Dtest=Runner
+        run: mvn clean test -Dtest=Runner -Dbrowser=chrome
 
       - name: Upload Test Reports
         if: always()
