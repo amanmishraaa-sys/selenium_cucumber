@@ -29,7 +29,7 @@ jobs:
           mvn -version
 
       - name: Run Selenium Cucumber Tests
-        run: mvn clean test -Dtest=Runner -Dbrowser=chrome
+        run: mvn clean test verify -Dcucumber.filter.tags="@testcases" -Dtest=Runner -Dbrowser=chrome
 
       - name: Upload Test Reports
         if: always()
