@@ -1,6 +1,6 @@
 Feature: Login page feature
 
-  @login
+    @login
   Scenario: Login page title
     Given Go to the url "https://rahulshettyacademy.com/client/#/auth/login"
     When User gets the title of the page
@@ -11,7 +11,7 @@ Feature: Login page feature
     Given Go to the url "https://rahulshettyacademy.com/client/#/auth/login"
     Then Verify that forgot password link is displayed
 
-      @loginWithCreds
+    @loginWithCreds
   Scenario: Login with correct credentials
     Given Go to the url "https://rahulshettyacademy.com/client/#/auth/login"
     When User enters username "doubledouble@gmail.com"
@@ -19,3 +19,16 @@ Feature: Login page feature
     And Click on Login button
     Then User gets the title of the page
     And Page title should be "Let's Shop"
+
+    @registerUser
+  Scenario: Create a new account
+    Given Go to the url "https://rahulshettyacademy.com/client/#/auth/login"
+    And Click on "Register here" link
+    And Fill first name, last name, useremail and usermobile with randoms
+    And Select "Student" in occupation field
+    And Click on "Male" for gender radio button
+    And Fill "userPassword" field with "Aman@9635992829"
+    And Fill "confirmPassword" field with "Aman@9635992829"
+    And "Check" the "checkbox" field
+    And Click on "login" button
+    And Verify the visibility of "Account Created Successfully" heading

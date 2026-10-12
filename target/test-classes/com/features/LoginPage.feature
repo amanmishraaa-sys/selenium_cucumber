@@ -19,3 +19,20 @@ Feature: Login page feature
     And Click on Login button
     Then User gets the title of the page
     And Page title should be "Let's Shop"
+
+
+  Scenario: Create a new account
+    Given Go to the url "https://rahulshettyacademy.com/client/#/auth/login"
+    And Click on "Register here" link
+    And Fill first name, last name, useremail and usermobile with randoms
+#    And Fill "firstName" field with "Random first name"
+#    And Fill "lastName" field with "Random last name"
+#    And Fill "userEmail" field with "RandomEmail"
+#    And Fill "userMobile" field with "RandomMobile"
+    And Select "Student" in occupation field
+    And Click on "Male" for gender radio button
+    And Fill "userPassword" field with "Aman@9635992829"
+    And Fill "confirmPassword" field with "Aman@9635992829"
+    And "Check" the "checkbox" field
+    And Click on "login" button
+    And Verify the visibility of "Account Created Successfully" heading
