@@ -1,17 +1,17 @@
 Feature: Login page feature
 
-    @login
+    @testcases @login
   Scenario: Login page title
     Given Go to the url "https://rahulshettyacademy.com/client/#/auth/login"
     When User gets the title of the page
     Then Page title should be "Let's Shop"
 
-    @forgotPassworLink
+    @testcases @forgotPassworLink
   Scenario: Forgot Password link
     Given Go to the url "https://rahulshettyacademy.com/client/#/auth/login"
     Then Verify that forgot password link is displayed
 
-    @loginWithCreds
+    @testcases @loginWithCreds
   Scenario: Login with correct credentials
     Given Go to the url "https://rahulshettyacademy.com/client/#/auth/login"
     When User enters username "doubledouble@gmail.com"
@@ -20,7 +20,7 @@ Feature: Login page feature
     Then User gets the title of the page
     And Page title should be "Let's Shop"
 
-    @registerUser
+    @testcases @registerUser
   Scenario: Create a new account
     Given Go to the url "https://rahulshettyacademy.com/client/#/auth/login"
     And Click on "Register here" link
