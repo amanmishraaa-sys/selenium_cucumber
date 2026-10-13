@@ -22,7 +22,6 @@ public class CommonPage {
     }
 
     public boolean verifyToastMessage(String messageText){
-        webUtil.waitForElementToBeVisible(By.xpath(ReadProperty.propertyReader("toastMessage")));
         return webUtil.getText(By.xpath(ReadProperty.propertyReader("toastMessage"))).equals(messageText);
     }
 
