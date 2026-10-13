@@ -28,6 +28,7 @@ public class DriverFactory {
 
             options.addArguments("--headless=new");
             options.addArguments("--window-size=1920,1080");
+            options.addArguments("--force-device-scale-factor=1");
 
             tlDriver.set(new ChromeDriver(options));
         }
