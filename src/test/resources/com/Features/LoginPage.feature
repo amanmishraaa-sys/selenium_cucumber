@@ -31,4 +31,5 @@ Feature: Login page feature
     And Fill "confirmPassword" field with "Aman@9635992829"
     And "Check" the "checkbox" field
     And Click on "login" button
-    And Verify the visibility of "Account Created Successfully" heading
+    Then Verify the visibility of "Account Created Successfully" heading
+    And Verify the visibility of "Registered successfully" toast message

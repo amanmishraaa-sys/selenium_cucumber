@@ -10,6 +10,8 @@ public class BasePage {
         this.driver = driver;
     }
 
+    public CommonPage commonPage() { return new CommonPage(this.driver); }
+
     public LoginPage loginPage(){ return new LoginPage(this.driver); }
 
     public RegisterPage registerPage(){ return new RegisterPage(this.driver); }

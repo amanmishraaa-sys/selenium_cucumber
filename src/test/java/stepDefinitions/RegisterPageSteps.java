@@ -46,4 +46,9 @@ public class RegisterPageSteps {
     public void fillFirstNameLastNameUseremailAndUsermobileWithRandoms() {
         basePage.registerPage().fillFirstNameLastNameUseremailAndUsermobileWithRelevantRandoms();
     }
+
+    @And("Verify the visibility of {string} toast message")
+    public void verifyTheVisibilityOfToastMessage(String messageText) {
+        Assert.assertTrue(basePage.commonPage().verifyToastMessage(messageText));
+    }
 }
