@@ -52,6 +52,9 @@ public class DriverFactory {
             System.out.println("Please pass the correct browser value: "+browser);
         }
         getDriver().manage().deleteAllCookies();
+        getDriver().manage().window().setSize(
+                new org.openqa.selenium.Dimension(1920, 1080)
+        );
         try {
             getDriver().manage().window().maximize();
         } catch (Exception e){
