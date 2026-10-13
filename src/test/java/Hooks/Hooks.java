@@ -41,7 +41,7 @@ public class Hooks {
     @After(order = 1)
     public void tearDown(Scenario scenario){
         // take screenshot
-        String screenshotName = scenario.getName().replaceAll("","_");
+        String screenshotName = scenario.getName().replaceAll("[^a-zA-Z0-9.-]", "_");
         byte [] sourcePath = ((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES);
         scenario.attach(sourcePath,"image/png", screenshotName);
     }
