@@ -1,6 +1,8 @@
 package com.factory;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.openqa.selenium.Dimension;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -53,18 +55,24 @@ public class DriverFactory {
         }
         getDriver().manage().deleteAllCookies();
         getDriver().manage().window().setSize(
-                new org.openqa.selenium.Dimension(1920, 1080)
+                new Dimension(1920, 1080)
         );
-        try {
-            getDriver().manage().window().maximize();
-        } catch (Exception e){
-            System.out.println(
-                    "Could not maximize browser window: "
-                            + e.getMessage());
-        }
+//        try {
+//            getDriver().manage().window().maximize();
+//        } catch (Exception e){
+//            System.out.println(
+//                    "Could not maximize browser window: "
+//                            + e.getMessage());
+//        }
         System.out.println(
                 "Browser window size: "
                         + getDriver().manage().window().getSize());
+        JavascriptExecutor js = (JavascriptExecutor) getDriver();
+
+        System.out.println(
+                "Viewport size: "
+                        + js.executeScript(
+                        "return window.innerWidth + 'x' + window.innerHeight"));
         return getDriver();
     }
 
