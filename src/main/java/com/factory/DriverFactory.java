@@ -8,8 +8,6 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class DriverFactory {
 
-    public WebDriver driver;
-
     public static ThreadLocal<WebDriver> tlDriver = new ThreadLocal<>();
 
     /**
@@ -21,6 +19,7 @@ public class DriverFactory {
         System.out.println("Browser value is: "+browser);
 
         if (browser.equals("chrome")){
+            WebDriverManager.chromedriver().setup();
             tlDriver.set(new ChromeDriver());
         }
         else if(browser.equals("firefox")){

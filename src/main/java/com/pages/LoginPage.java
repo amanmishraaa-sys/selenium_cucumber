@@ -4,7 +4,6 @@ import com.util.ReadProperty;
 import com.util.WebUtil;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.io.Read;
 
 public class LoginPage{
 
