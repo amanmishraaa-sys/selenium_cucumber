@@ -12,7 +12,7 @@
 
   <properties>
     	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<java.version>25</java.version>
+		<java.version>11</java.version>
 		<junit.version>4.13.1</junit.version>
 		<cucumber.version>6.9.0</cucumber.version>
 		<maven.compiler.version>3.14.1</maven.compiler.version>
@@ -87,6 +87,11 @@
 			<artifactId>poi-ooxml</artifactId>
 			<version>4.1.2</version>
 		</dependency>
+	    <dependency>
+		  <groupId>com.github.javafaker</groupId>
+		  <artifactId>javafaker</artifactId>
+		  <version>1.0.2</version>
+	    </dependency>
   </dependencies>
   
   	<build>

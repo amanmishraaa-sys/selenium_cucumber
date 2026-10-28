@@ -1,6 +1,6 @@
 package stepDefinitions;
 import com.factory.DriverFactory;
-import com.pages.LoginPage;
+import com.pages.BasePage;
 import io.cucumber.java.en.*;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
@@ -8,18 +8,19 @@ import org.openqa.selenium.WebDriver;
 public class LoginPageSteps {
 
     WebDriver driver = DriverFactory.getDriver();
-    private LoginPage loginPage = new LoginPage(driver);
+
+    private BasePage basePage = new BasePage(driver);
 
     String pageTitle;
 
     @Given("Go to the url {string}")
     public void user_is_login_page(String url) {
-        loginPage.goToTheLoginPage(url);
+        basePage.loginPage().goToTheLoginPage(url);
     }
 
     @When("User gets the title of the page")
     public void user_gets_the_title_of_the_page() {
-        pageTitle = loginPage.getLoginPageTitle();
+        pageTitle = basePage.loginPage().getLoginPageTitle();
     }
 
     @Then("Page title should be {string}")
@@ -29,20 +30,25 @@ public class LoginPageSteps {
 
     @And("Verify that forgot password link is displayed")
     public void verifyThatForgotPasswordLinkIsDisplayed(){
-        Assert.assertTrue(loginPage.forgotPasswordLinkIsVisible());
+        Assert.assertTrue(basePage.loginPage().forgotPasswordLinkIsVisible());
     }
     @And("Click on Login button")
     public void clickOnLoginButton(){
-        loginPage.clickLoginButton();
+        basePage.loginPage().clickLoginButton();
     }
 
     @And("User enters username {string}")
     public void userEntersUsername(String username){
-        loginPage.enterUsername(username);
+        basePage.loginPage().enterUsername(username);
     }
 
     @And ("User enters password {string}")
     public  void userEntersPassword(String password){
-        loginPage.enterPassword(password);
+        basePage.loginPage().enterPassword(password);
+    }
+
+    @And("Click on {string} link")
+    public void clickOnLink(String linkText) {
+        basePage.loginPage().clickOnRegisterHereLink(linkText);
     }
 }

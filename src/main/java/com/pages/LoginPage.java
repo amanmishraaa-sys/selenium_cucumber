@@ -1,6 +1,7 @@
 package com.pages;
 
 import com.util.ReadProperty;
+import com.util.Utility;
 import com.util.WebUtil;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -11,11 +12,12 @@ public class LoginPage{
 
     private WebUtil webUtil;
 
-    private By forgotPwdLink = By.linkText("Forgot your password?");
+    private Utility utility;
 
     public LoginPage(WebDriver driver){
         this.driver = driver;
         this.webUtil = new WebUtil(driver);
+        this.utility = new Utility();
     }
 
     public void goToTheLoginPage(String url){
@@ -26,16 +28,12 @@ public class LoginPage{
        return webUtil.getPageTitle();
     }
 
-    public boolean isForgotPwdLinkExist() {
-        return driver.findElement(forgotPwdLink).isDisplayed();
-    }
-
     public void enterUsername(String usernameToEnter){
         webUtil.input(By.xpath(ReadProperty.propertyReader("loginPageEmail")), usernameToEnter);
     }
 
     public void enterPassword(String passwordToEnter){
-        webUtil.input(By.xpath(ReadProperty.propertyReader("loginPagePassword")),passwordToEnter);
+        webUtil.input(By.xpath(ReadProperty.propertyReader("inputIdValue").replace("value","userPassword")),passwordToEnter);
     }
 
     public void clickLoginButton(){
@@ -44,5 +42,9 @@ public class LoginPage{
 
     public boolean forgotPasswordLinkIsVisible(){
        return webUtil.isElementVisible(By.xpath(ReadProperty.propertyReader("forgotPasswordLink")));
+    }
+
+    public void clickOnRegisterHereLink(String linkText){
+        webUtil.click(By.xpath(ReadProperty.propertyReader("registerHere").replace("value",linkText)));
     }
 }

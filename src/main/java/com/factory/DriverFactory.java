@@ -26,7 +26,7 @@ public class DriverFactory {
             WebDriverManager.firefoxdriver().setup();
             tlDriver.set(new FirefoxDriver());
         }
-        else if(browser.equals("safari")){
+        else if(browser.equals("edge")){
             WebDriverManager.edgedriver().setup();
             tlDriver.set(new EdgeDriver());
         }

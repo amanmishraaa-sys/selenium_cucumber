@@ -1,0 +1,46 @@
+
+name: Selenium Cucumber Automation
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  automation-tests:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '11'
+          cache: maven
+
+      - name: Verify Java and Maven
+        run: |
+          java -version
+          mvn -version
+
+      - name: Run Selenium Cucumber Tests
+        shell: pwsh
+        run: |
+          mvn --% clean test verify -Dcucumber.filter.tags="@testcases" -Dtest=Runner -Dbrowser=chrome
+
+      - name: Upload Test Reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: extent-spark-report
+          path: |
+            test-output/SparkReport/
+            test-output/embedded*.png
+            target/surefire-reports/
+          if-no-files-found: warn
+          retention-days: 7
