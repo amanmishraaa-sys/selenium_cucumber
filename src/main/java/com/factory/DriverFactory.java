@@ -3,8 +3,11 @@ package com.factory;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 
 public class DriverFactory {
 
@@ -15,19 +18,31 @@ public class DriverFactory {
      * @param browser
      * @return
      */
-    public WebDriver init_driver(String browser){
+    public WebDriver init_driver(String browser, boolean headless){
         System.out.println("Browser value is: "+browser);
 
         if (browser.equals("chrome")){
             WebDriverManager.chromedriver().setup();
-            tlDriver.set(new ChromeDriver());
+            ChromeOptions options = new ChromeOptions();
+            if(headless){
+                options.addArguments("--headless=new");
+            }
+            tlDriver.set(new ChromeDriver(options));
         }
         else if(browser.equals("firefox")){
             WebDriverManager.firefoxdriver().setup();
-            tlDriver.set(new FirefoxDriver());
+            FirefoxOptions options = new FirefoxOptions();
+            if(headless) {
+                options.addArguments("-headless");
+            }
+            tlDriver.set(new FirefoxDriver(options));
         }
         else if(browser.equals("edge")){
             WebDriverManager.edgedriver().setup();
+            EdgeOptions options = new EdgeOptions();
+            if(headless){
+                options.addArguments("--headless=new");
+            }
             tlDriver.set(new EdgeDriver());
         }
         else {

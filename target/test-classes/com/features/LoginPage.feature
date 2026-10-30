@@ -32,4 +32,4 @@ Feature: Login page feature
     And "Check" the "checkbox" field
     And Click on "login" button
     Then Verify the visibility of "Account Created Successfully" heading
-    And Verify the visibility of "Registered successfully" toast message
+    And Verify the visibility of "Registered Successfully" toast message

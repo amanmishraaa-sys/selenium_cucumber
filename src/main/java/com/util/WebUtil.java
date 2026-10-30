@@ -13,18 +13,20 @@ public class WebUtil {
 
     WebDriver driver;
 
+    WebElement element;
+
     public WebUtil(WebDriver driver){
         this.driver = driver;
     }
 
     public void click(By locator){
-        waitForElementToBeVisible(locator);
-        driver.findElement(locator).click();
+        element = waitForElementToBeVisible(locator);
+        element.click();
     }
 
     public void clear(By locator) {
-        waitForElementToBeVisible(locator);
-        driver.findElement(locator).clear();
+        element = waitForElementToBeVisible(locator);
+        element.clear();
     }
 
     public void navigateToUrl(String url){
@@ -32,8 +34,8 @@ public class WebUtil {
     }
 
     public void input(By locator, String value){
-        waitForElementToBeVisible(locator);
-        driver.findElement(locator).sendKeys(value);
+        element = waitForElementToBeVisible(locator);
+        element.sendKeys(value);
     }
 
     public String getPageTitle(){
@@ -41,38 +43,37 @@ public class WebUtil {
     }
 
     public boolean isElementVisible(By locator){
-        waitForElementToBeVisible(locator);
-        return driver.findElement(locator).isDisplayed();
+        element = waitForElementToBeVisible(locator);
+        return element.isDisplayed();
     }
 
-    public void waitForElementToBeVisible(By locator){
+    public WebElement waitForElementToBeVisible(By locator){
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
 
     public boolean isEnabled(By locator){
-        waitForElementToBeVisible(locator);
-        return driver.findElement(locator).isEnabled();
+        element = waitForElementToBeVisible(locator);
+        return element.isEnabled();
     }
 
     public boolean isSelected(By locator){
-        waitForElementToBeVisible(locator);
-        return driver.findElement(locator).isSelected();
+        element = waitForElementToBeVisible(locator);
+        return element.isSelected();
     }
 
     public String getText(By locator){
-        waitForElementToBeVisible(locator);
-        return driver.findElement(locator).getText();
+        element = waitForElementToBeVisible(locator);
+        return element.getText();
     }
 
     public String getAttribute(By locator, String key){
-        waitForElementToBeVisible(locator);
-        return driver.findElement(locator).getAttribute(key);
+        element = waitForElementToBeVisible(locator);
+        return element.getAttribute(key);
     }
 
     public WebElement getElement(By locator){
-        waitForElementToBeVisible(locator);
-        return driver.findElement(locator);
+        return waitForElementToBeVisible(locator);
     }
 
     public void selectDropdownByText(WebElement element, String textToBeSelected){

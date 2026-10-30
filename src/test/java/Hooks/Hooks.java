@@ -27,8 +27,9 @@ public class Hooks {
     @Before(order = 1)
     public void launchBrowser(){
        String broswerName =  prop.getProperty("browser");
+       boolean headless = Boolean.parseBoolean(prop.getProperty("headless"));
        driverFactory  = new DriverFactory();
-         driver = driverFactory.init_driver(broswerName);
+         driver = driverFactory.init_driver(broswerName, headless);
     }
 
     @After(order = 0)
